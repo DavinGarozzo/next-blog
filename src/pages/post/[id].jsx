@@ -10,8 +10,8 @@ export default function () {
   const [postData, setPostData] = useState({});
 
   useEffect(() => {
-    GET(`posts/${id}`).then((data) => setPostData(data));
-  }, []);
+   if(router.isReady) GET(`posts/${id}`).then((data) => setPostData(data));
+  }, [router.isReady]);
 
   return (
     <div className={styles.dPost}>
